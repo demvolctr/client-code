@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo -n "Enter machine number: "
+read machine
+export machine
+
+cat /home/demcaller/.mozilla/firefox/*default/prefs.js | sed -e "/\"browser.startup.homepage\"/d" >/tmp/firefox_tmp
+echo -n "user_pref(\"browser.startup.homepage\", \"https://demvolctr.org/phone-bank-master/?machine=${machine}" >>/tmp/firefox_tmp
+echo -n $firefox >>/tmp/firefox_tmp
+echo "\");/" >>/tmp/firefox_tmp
+chown demcaller /tmp/firefox_tmp
+chgrp demcaller /tmp/firefox_tmp
+chmod 664 /tmp/firefox_tmp
+
+HOSTLINE="127.0.0.1	dvc-dell-${machine}"; export HOSTLINE
+cat /etc/hosts |sed -e "/dvc-dell/s/.*dvc-dell.*/${HOSTLINE}/" >/tmp/hosts_tmp
+chown root /tmp/hosts_tmp
+chgrp root /tmp/hosts_tmp
+chmod 644 /tmp/hosts_tmp
+
+echo "dvc-dell-${machine}" > /tmp/hostname_tmp
+chown root /tmp/hostname_tmp
+chgrp root /tmp/hostname_tmp
+chmod 644 /tmp/hostname_tmp
+
+mv /tmp/firefox_tmp /home/demcaller/.mozilla/firefox/*default/prefs.js
+mv /tmp/hosts_tmp /etc/hosts
+mv /tmp/hostname_tmp /etc/hostname
