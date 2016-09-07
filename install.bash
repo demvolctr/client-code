@@ -1,8 +1,11 @@
 #!/bin/bash
 #
 #  install.bash:
+#    Called once at startup in /etc/rc.local.
 #    1.  spin on network interface first, then github
 #    2.  if both are alive, then pull and update
+#
+#	J.Hull -- 9/6/16
 #
 
 test_host() {
@@ -28,9 +31,11 @@ echo `/bin/date` "Starting pull and install"
 
 cd /home/dem/gitproject/client-code
 git pull https://github.com/demvolctr/client-code
-let pull_result=$?
-if [ $pull_result -eq 0 ]; then
-   echo "Nothing changed since last reboot"
-   exit 0
-fi
+
+# let pull_result=$?
+# if [ $pull_result -eq 0 ]; then
+#    echo "Nothing changed since last reboot"
+ #   exit 0
+# fi
+
 /home/dem/gitproject/client-code/copy_usr_local_bin.pl
