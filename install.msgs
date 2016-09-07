@@ -1,8 +1,0 @@
-found 127.0.0.1 i=1
-ping: unknown host github.com
-found github.com i=2
-Wed Sep 7 10:29:16 PDT 2016 Starting pull and install
-From https://github.com/demvolctr/client-code
- * branch            HEAD       -> FETCH_HEAD
-Already up-to-date.
-Nothing changed since last reboot
