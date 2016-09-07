@@ -24,10 +24,10 @@ while (readdir $dh) {
       print "$dt: copy_usr_local_bin.pl: copying $srcfile\n";
       move("$destfile","$destfile.PREV") or die("mv $destfile.PREV failed $!");
       copy("$srcfile","$destfile") or die("copy $srcfile $destfile failed $!");
-      chmod 0755, $destfile;
+      chmod 0755, $destfile or die("cant change perms on $destfile");
    }
    else {
-     print "$dt: copy_usr_local_bin.pl: skippping $srcfile\n";
+     if (-f $srcfile) { print "$dt: copy_usr_local_bin.pl: skip $srcfile\n"; }
    }
 }
 closedir $dh;
