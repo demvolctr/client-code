@@ -1,4 +1,9 @@
-fatal: unable to access 'https://github.com/demvolctr/client-code/': Could not resolve host: github.com
-2016-09-07-08-25-29: copy_usr_local_bin.pl: skip /home/dem/gitproject/client-code/usr_local_bin/echo_host
-2016-09-07-08-25-29: copy_usr_local_bin.pl: skip /home/dem/gitproject/client-code/usr_local_bin/skype-on-top
-2016-09-07-08-25-29: copy_usr_local_bin.pl: skip /home/dem/gitproject/client-code/usr_local_bin/setmachine
+found 127.0.0.1 i=1
+ping: unknown host github.com
+ping: unknown host github.com
+found github.com i=3
+Wed Sep 7 10:23:05 PDT 2016 Starting pull and install
+From https://github.com/demvolctr/client-code
+ * branch            HEAD       -> FETCH_HEAD
+Already up-to-date.
+Nothing changed since last reboot
