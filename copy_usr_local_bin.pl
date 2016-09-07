@@ -22,7 +22,9 @@ while (readdir $dh) {
    $destfile = "$Dest/$file";
    if (-f $srcfile && compare($srcfile,$destfile)) { # src != dest
       print "$dt: copy_usr_local_bin.pl: copying $srcfile\n";
-      move("$destfile","$destfile.PREV") or die("mv $destfile.PREV failed $!");
+      if (-e $destfile) {
+         move("$destfile","$destfile.PREV") or die("mv $destfile.PREV fail $!");
+      }
       copy("$srcfile","$destfile") or die("copy $srcfile $destfile failed $!");
       chmod 0755, $destfile or die("cant change perms on $destfile");
    }
