@@ -6,6 +6,6 @@ wmctrl -a "Call with" -b add,above
 sleep 2
 wmctrl -a "Call with" -b remove,above
 sleep 1
-wmctrl -r "Call with" -e 0,0,0,50,5
+wmctrl -r "Call with" -e 0,10,50,50,55
 sleep 1
 wmctrl -a "Call with"
