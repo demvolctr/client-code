@@ -1,7 +1,0 @@
-#!/bin/bash
-
-/usr/bin/skype $*
-sleep 2
-wmctrl -a "Call with" -b add,above
-sleep 2
-wmctrl -a "Call with" -b remove,above
