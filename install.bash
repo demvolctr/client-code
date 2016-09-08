@@ -39,3 +39,4 @@ sudo --user=dem git pull https://github.com/demvolctr/client-code
 # fi
 
 /home/dem/gitproject/client-code/copy_usr_local_bin.pl
+/home/dem/gitproject/client-code/copy_rc_local.pl
