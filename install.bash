@@ -9,7 +9,7 @@
 #
 
 test_host() {
-   for i in `seq 1 10`;
+   for i in `seq 1 20`;
    do
       ping -q -c 1 $1 > /dev/null
       let exit_status=$?
@@ -30,7 +30,7 @@ if [ $host_there -ne 0 ]; then echo "no github.com"; exit 1; fi
 echo `/bin/date` "Starting pull and install"
 
 cd /home/dem/gitproject/client-code
-git pull https://github.com/demvolctr/client-code
+sudo --user=dem git pull https://github.com/demvolctr/client-code
 
 # let pull_result=$?
 # if [ $pull_result -eq 0 ]; then
