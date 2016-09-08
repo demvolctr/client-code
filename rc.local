@@ -12,6 +12,5 @@
 # By default this script does nothing.
 
 /home/dem/gitproject/client-code/install.bash >& /home/dem/gitproject/install.msgs
-echo hi
 
 exit 0
