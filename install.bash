@@ -30,7 +30,7 @@ if [ $host_there -ne 0 ]; then echo "no github.com"; exit 1; fi
 echo `/bin/date` "Starting pull and install"
 
 cd /home/dem/gitproject/client-code
-sudo --user=dem git pull https://github.com/demvolctr/client-code
+sudo --user=dem git pull https://github.com/demvolctr/client-code master
 
 # let pull_result=$?
 # if [ $pull_result -eq 0 ]; then
