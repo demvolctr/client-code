@@ -1,4 +1,15 @@
-9/6/16: test version of git repository
+9/15/16:  Democratic Volunteer Center code distribution system.
 
+This is a git repository for Ubuntu code developed in support of the
+phone bank system at the Democratic Volunteer Center (DVC) in
+Mountain View, CA.  The phone bank is comprised of 50 Dell laptops 
+running Ubuntu, skype and firefox that are interfaced 
+to various databases provided by the Democratic party.
 
-yo yo
+Elements of the code and configuration of those laptops are stored 
+and distributed from github.com/demvolctr.  This includes our version
+of /etc/rc.local that calls install.bash every time the laptops are
+rebooted.  This script does a 'git pull' to retrieve the latest 
+version of the code from github.com.  If /etc/rc.local or any files 
+in /usr/local/bin have been changed since the last 'git pull,' the
+new versions are copied into their correct destinations.
