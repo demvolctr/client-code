@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+#  skype_on_top:  call /usr/bin/skype with the supplied arguments and then
+#    adjust the skype windows' positions for user comfort.
+#   
+#    Jon Hull -- 9/10/16
+#
 
 /usr/bin/skype $*
 sleep 2
@@ -6,6 +12,12 @@ wmctrl -a "Call with" -b add,above
 sleep 2
 wmctrl -a "Call with" -b remove,above
 sleep 1
-wmctrl -r "Call with" -e 0,60,60,50,50
+wmctrl -r "Call with" -e 0,160,160,50,50
 sleep 1
+
+# Give firefox focus so that the small skype window appears on the top right.
+#  To do that, we must first focus on skype then firefox
+
 wmctrl -a "Call with"
+# sleep 1
+wmctrl -a "Mozilla Firefox"
