@@ -5,12 +5,12 @@
 #      Jon Hull -- 10/5/16
 #
 
-echo `/bin/date` " start: installing openssh-client"
+echo `/bin/date` " start: installing openssh-server"
 
-let install_status=`dpkg -s openssh-client|grep Status|awk 'BEGIN { stat=0;} (/install ok installed/) { stat=1;} END {print stat;}'`
+let install_status=`dpkg -s openssh-server|grep Status|awk 'BEGIN { stat=0;} (/install ok installed/) { stat=1;} END {print stat;}'`
 
 if [ $install_status -eq 1 ]; then
-  echo `/bin/date` " openssh-client already up to date"
+  echo `/bin/date` " openssh-server already up to date"
   exit 0
 fi
 
@@ -24,4 +24,4 @@ sudo ufw allow 22
 echo "sed on /etc/ssh/sshd_config"
 sudo sed -i.bak 's/PermitRootLogin without-password/PermitRootLogin no/' /etc/ssh/sshd_config
 
-echo `/bin/date` " finished: installing openssh-client"
+echo `/bin/date` " finished: installing openssh-server"
