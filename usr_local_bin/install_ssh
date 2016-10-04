@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "start: Installing openssh-client"
+/bin/date
+sudo apt-get -y install openssh-client=1:6.6p1-2ubuntu1
+echo "Installing openssh-server"
+sudo apt-get -y install openssh-server
+echo "ufw allow 22"
+sudo ufw allow 22
+echo "sed on /etc/ssh/sshd_config"
+sudo sed -i.bak 's/PermitRootLogin without-password/PermitRootLogin no/' /etc/ssh/sshd_config
+echo "finish: "
+/bin/date
