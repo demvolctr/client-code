@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#  install_pkgs:  install various packages and updates.
+#    To add more packages, add a script that installs the package.
+#    Each script should check to make sure it doesn't install
+#    redundant copies of its package.
+#
+#       Jon Hull -- 10/5/16
+#
+echo `/bin/date` " : start installing packages"
+
+/usr/local/bin/install_ssh
+
+echo `/bin/date` " : finished installing packages"

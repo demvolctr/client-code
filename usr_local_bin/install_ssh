@@ -1,6 +1,19 @@
 #!/bin/bash
-echo "start: Installing openssh-client"
-/bin/date
+#
+#  install_ssh: install ssh client and server to enable parallel ssh 
+#
+#      Jon Hull -- 10/5/16
+#
+
+echo `/bin/date` " start: installing openssh-client"
+
+let install_status=`dpkg -s openssh-client|grep Status|awk 'BEGIN { stat=0;} (/install ok installed/) { stat=1;} END {print stat;}'`
+
+if [ $install_status -eq 1 ]; then
+  echo `/bin/date` " openssh-client already up to date"
+  exit 0
+fi
+
 sudo dpkg --configure -a
 sudo apt-get -y remove openssh-client
 sudo apt-get -y install openssh-client=1:6.6p1-2ubuntu1
@@ -10,5 +23,5 @@ echo "ufw allow 22"
 sudo ufw allow 22
 echo "sed on /etc/ssh/sshd_config"
 sudo sed -i.bak 's/PermitRootLogin without-password/PermitRootLogin no/' /etc/ssh/sshd_config
-echo "finish: "
-/bin/date
+
+echo `/bin/date` " finished: installing openssh-client"
