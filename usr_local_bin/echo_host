@@ -1,3 +1,2 @@
 #!/bin/bash
 cat /etc/hostname | awk -F - '{print $3;}'
-echo "hi there"
