@@ -44,6 +44,7 @@ sudo --user=dem git pull https://github.com/demvolctr/client-code master
 /usr/local/bin/install_pkgs
 
 let machine_num=`/usr/local/bin/echo_host`
+echo "machine_num=" $machine_num
 if [ $machine_num -eq 25 ] | [ $machine_num -eq 26 ]; then
   echo "in here " $machine_num
   sudo --user=demcaller /home/dem/gitproject/client-code/copy_dotmozilla.pl
