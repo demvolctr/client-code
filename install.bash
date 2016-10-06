@@ -45,8 +45,8 @@ sudo --user=dem git pull https://github.com/demvolctr/client-code master
 
 let machine_num=`/usr/local/bin/echo_host`
 echo "machine_num=" $machine_num
-#if [ $machine_num -eq 25 ] | [ $machine_num -eq 26 ]; then
-if [ $machine_num -eq 25 ]; then
+if [ $machine_num -eq 25 ] || [ $machine_num -eq 26 ]; then
+# if [ $machine_num -eq 25 ]; then
   echo "updating dotmozilla for machine " $machine_num
   sudo --user=demcaller /home/dem/gitproject/client-code/copy_dotmozilla.pl
   cd /home/demcaller/dotmozilla/firefox/????????.default
