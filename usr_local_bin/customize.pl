@@ -66,8 +66,16 @@ while (<STDIN>) {
   print;
 }
 
-print STDERR "Found $Matches_found matches, expected to find $Matches_expected\n";
-print STDERR "  Note: number found should be half number expected because of how rewrite() is being called\n";
+$Matches_expected = $Matches_expected/2;
+
+if ($Matches_found != $Matches_expected) {
+   print STDERR "ERROR: found $Matches_found, expected $Matches_expected\n";
+   print STDERR "       tell some person to look at this\n";
+} else {
+   print STDERR "Correct number of changes made to prefs.js\n";
+}
+
+exit(0);
 
 sub rewrite {
   my($from,$to) = @_;
