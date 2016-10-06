@@ -53,4 +53,5 @@ if [ $machine_num -eq 25 ]; then
   sudo --user=demcaller /usr/local/bin/customize.pl $machine_num <prefs.js > newprefs.js
   mv prefs.js oldprefs.js
   mv newprefs.js prefs.js
+  echo "finished customizing dotmozilla"
 fi
