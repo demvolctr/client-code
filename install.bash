@@ -43,15 +43,16 @@ sudo --user=dem git pull https://github.com/demvolctr/client-code master
 
 /usr/local/bin/install_pkgs
 
-let machine_num=`/usr/local/bin/echo_host`
-echo "machine_num=" $machine_num
-if [ $machine_num -eq 25 ] || [ $machine_num -eq 26 ]; then
-# if [ $machine_num -eq 25 ]; then
-  echo "updating dotmozilla for machine " $machine_num
-  sudo --user=demcaller /home/dem/gitproject/client-code/copy_dotmozilla.pl
-  cd /home/demcaller/dotmozilla/firefox/????????.default
-  sudo --user=demcaller /usr/local/bin/customize.pl $machine_num <prefs.js > newprefs.js
-  mv prefs.js oldprefs.js
-  mv newprefs.js prefs.js
-  echo "finished customizing dotmozilla"
-fi
+/usr/local/bin/health_checkup >>& /home/dem/gitproject/health_report
+
+# let machine_num=`/usr/local/bin/echo_host`
+# echo "machine_num=" $machine_num
+# if [ $machine_num -eq 25 ] || [ $machine_num -eq 26 ]; then
+  # echo `/bin/date` ":updating dotmozilla for machine " $machine_num
+  # sudo --user=demcaller /home/dem/gitproject/client-code/copy_dotmozilla.pl
+  # cd /home/demcaller/dotmozilla/firefox/????????.default
+  # sudo --user=demcaller /usr/local/bin/customize.pl $machine_num < prefs.js > newprefs.js
+  # sudo --user=demcaller mv prefs.js oldprefs.js
+  # sudo --user=demcaller mv newprefs.js prefs.js
+  # echo `/bin/date` ":finished customizing dotmozilla"
+# fi

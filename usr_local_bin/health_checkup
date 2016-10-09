@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Checking health of machine " `/usr/local/bin/echo_host` "at ip addresses:"
+
+/sbin/ifconfig | grep "inet addr"
+
+echo " "
+echo "Autofill field values in firefox for demcaller:"
+/usr/local/bin/autofill_check.pl /home/demcaller/.mozilla/firefox/????????.default/prefs.js
+
+echo " "
+echo "Disk health as determined by Smartmon"
+/usr/sbin/smartctl -H /dev/sda | grep "overall-health"
+
