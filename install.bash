@@ -43,7 +43,9 @@ sudo --user=dem git pull https://github.com/demvolctr/client-code master
 
 /usr/local/bin/install_pkgs
 
-/usr/local/bin/health_checkup >>& /home/dem/gitproject/health_report
+echo "Starting health checkup"
+/usr/local/bin/health_checkup >& /home/dem/gitproject/health_report
+echo "Finished health checkup"
 
 # let machine_num=`/usr/local/bin/echo_host`
 # echo "machine_num=" $machine_num
