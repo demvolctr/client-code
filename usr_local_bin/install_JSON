@@ -7,13 +7,13 @@
 
 echo `/bin/date` " start: installing JSON package in perl"
 
-let install_status=`cpan -D JSON|awk 'BEGIN { stat=0;} ($1 == "Installed:" && $2 == "2.90") { stat=1;} END {print stat;}'`
+let install_status=`dpkg -s libjson-perl|grep Status|awk 'BEGIN { stat=0;} (/install ok installed/) { stat=1;} END {print stat;}'`
 
 if [ $install_status -eq 1 ]; then
   echo `/bin/date` " JSON package already up to date"
   exit 0
 fi
 
-cpan -f -i JSON
+apt-get -f install libjson-perl
 
 echo `/bin/date` " finished: installing JSON package in perl"

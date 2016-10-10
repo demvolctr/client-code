@@ -17,7 +17,7 @@ echo "machine_num=" $mach_num
 if [ $mach_num -ge 22 ] && [ $mach_num -le 25 ]; then
    /usr/local/bin/install_smartmontools
    /usr/local/bin/install_JSON
-   # /usr/local/bin/install_flashplugin
+   /usr/local/bin/install_flashplugin
 fi
 
 echo `/bin/date` " : finished installing packages"

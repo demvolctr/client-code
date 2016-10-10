@@ -4,10 +4,12 @@
 #
 #      Jon Hull -- 10/10/16
 #
+#      1/10/16:  old version .632 is 1:20160712.1-0ubuntu0.14.04.1
+#         we want to update to 1:20160913.1-0ubuntu0.14.04.1
 
 echo `/bin/date` " start: installing flash plugin"
 
-let install_status=`dpkg -s adobe-flashplugin|awk 'BEGIN { stat=0;} ($1 == "Version:" && $2 == "1:20160913.1-0ubuntu0.16.04.1") { stat=1;} END {print stat;}'`
+let install_status=`dpkg -s adobe-flashplugin|awk 'BEGIN { stat=0;} ($1 == "Version:" && $2 == "1:20160913.1-0ubuntu0.14.04.1") { stat=1;} END {print stat;}'`
 
 if [ $install_status -eq 1 ]; then
   echo `/bin/date` " flash plugin already up to date"
@@ -15,6 +17,7 @@ if [ $install_status -eq 1 ]; then
 fi
 
 apt-get -y update
+# apt-get -y install adobe-flashplugin=1:20160913.1-0ubuntu0.14.04.1
 apt-get -y install adobe-flashplugin
 
 # It may be necessary to reboot after installing this patch to

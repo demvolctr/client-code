@@ -19,6 +19,8 @@ test_host() {
    return 1
 }
 
+echo `/bin/date` "Starting to install software updates and do health checkup"
+
 test_host "127.0.0.1"
 let host_there=$?
 if [ $host_there -ne 0 ]; then echo "no net interface"; exit 1; fi
@@ -58,3 +60,6 @@ echo "Finished health checkup"
   # sudo --user=demcaller mv newprefs.js prefs.js
   # echo `/bin/date` ":finished customizing dotmozilla"
 # fi
+
+echo `/bin/date` "Starting to install software updates and do health checkup"
+
