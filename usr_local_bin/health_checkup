@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Checking health of machine " `/usr/local/bin/echo_host` "at ip addresses:"
+echo `/bin/date` ": Checking health of machine " `/usr/local/bin/echo_host` "at ip addresses:"
 
 /sbin/ifconfig | grep "inet addr"
 

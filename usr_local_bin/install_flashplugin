@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+#  install_flashplugin: install updated flash plugin
+#
+#      Jon Hull -- 10/10/16
+#
+
+echo `/bin/date` " start: installing flash plugin"
+
+let install_status=`dpkg -s adobe-flashplugin|grep "^Version:"|awk 'BEGIN { stat=0;} ($2 == "1:20160913.1-0ubuntu0.16.04.1") { stat=1;} END {print stat;}'`
+
+if [ $install_status -eq 1 ]; then
+  echo `/bin/date` " flash plugin already up to date"
+  exit 0
+fi
+
+apt-get -y update
+apt-get -y install adobe-flashplugin
+
+echo `/bin/date` " finished: installing flash plugin"

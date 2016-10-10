@@ -11,4 +11,12 @@ echo `/bin/date` " : start installing packages"
 
 /usr/local/bin/install_ssh
 
+let mach_num=`/usr/local/bin/echo_host`
+echo "machine_num=" $mach_num
+if [ $mach_num -eq 22 ] || [ $mach_num -eq 23 ] || [ $mach_num -eq 24 ] || [ $mach_num -eq 25 ]; then
+   /usr/local/bin/install_smartmontools
+   /usr/local/bin/install_JSON
+   # /usr/local/bin/install_flashplugin
+fi
+
 echo `/bin/date` " : finished installing packages"

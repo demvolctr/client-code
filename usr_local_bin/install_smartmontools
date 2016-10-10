@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#  install_smartmontools: install smartmontools to enable disk health reporting
+#
+#      Jon Hull -- 10/10/16
+#
+
+echo `/bin/date` " start: installing smartmontools"
+
+let install_status=`dpkg -s smartmontools|grep Status|awk 'BEGIN { stat=0;} (/install ok installed/) { stat=1;} END {print stat;}'`
+
+if [ $install_status -eq 1 ]; then
+  echo `/bin/date` " smartmontools already up to date"
+  exit 0
+fi
+
+apt-get -y install smartmontools
+
+echo `/bin/date` " finished: installing smartmontools"
