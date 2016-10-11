@@ -14,6 +14,6 @@ if [ $install_status -eq 1 ]; then
   exit 0
 fi
 
-apt-get -f install libjson-perl
+apt-get -y install libjson-perl
 
 echo `/bin/date` " finished: installing JSON package in perl"
