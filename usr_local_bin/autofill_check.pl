@@ -26,11 +26,12 @@ while (<$fh>) {
 
        $parsed_json = $json->utf8(1)->decode($json_rules);
        # print Dumper $parsed_json;
-       @k = keys %$parsed_json;
+       %parsed_rules = %$parsed_json;
+       @k = keys %parsed_rules;
        @l = sort {suff($a) <=> suff($b)} @k;
        # print join(" ",@l), "\n";
        foreach $r (@l) {
-          $rule = %$parsed_json{$r};
+          $rule    = $parsed_rules{$r};
           %subrule = %$rule;
           print "   ", $subrule{s}," ",($subrule{n} =~ /(\w+)\$$/)," ",$subrule{v},"\n";
        }
