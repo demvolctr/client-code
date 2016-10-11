@@ -14,10 +14,11 @@ echo `/bin/date` " : start installing packages"
 let mach_num=`/usr/local/bin/echo_host`
 echo "machine_num=" $mach_num
 
+/usr/local/bin/install_JSON
+/usr/local/bin/install_flashplugin
+
 if [ $mach_num -ge 19 ] && [ $mach_num -le 25 ]; then
    /usr/local/bin/install_smartmontools
-   /usr/local/bin/install_JSON
-   /usr/local/bin/install_flashplugin
 fi
 
 echo `/bin/date` " : finished installing packages"
