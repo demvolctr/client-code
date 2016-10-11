@@ -61,5 +61,5 @@ echo "Finished health checkup"
   # echo `/bin/date` ":finished customizing dotmozilla"
 # fi
 
-echo `/bin/date` "Starting to install software updates and do health checkup"
+echo `/bin/date` "Finished installing updates and performing health checkup"
 
