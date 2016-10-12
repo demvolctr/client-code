@@ -13,9 +13,9 @@ user_js="$dir/user.js"
 
 if [ -f $user_js ];
    then
-      echo "user.js exists"
+      echo `/bin/date` " user.js already exists and wont be modified"
    else
-      echo "user.js does not exist"
+      echo `/bin/date` " creating a user.js that inhibits automatic updates"
       cd $dir
       echo "// turn off application updates:" > user.js
       echo "user_pref(\"app.update.enabled\", false);" >> user.js
