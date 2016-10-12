@@ -21,4 +21,8 @@ if [ $mach_num -ge 19 ] && [ $mach_num -le 25 ]; then
    /usr/local/bin/install_smartmontools
 fi
 
+if [ $mach_num -ge 25 ] && [ $mach_num -le 26 ]; then
+   /usr/local/bin/install_user_js
+fi
+
 echo `/bin/date` " : finished installing packages"

@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+#  install_user_js: install user.js in firefox config directory that 
+#	inhibits update checking
+#
+#      Jon Hull -- 10/11/16
+#
+
+echo `/bin/date` " start: installing user.js in firefox config"
+
+dir='/home/demcaller/.mozilla/firefox/????????.default'
+user_js="$dir/user.js"
+
+if [ -f $user_js ];
+   then
+      echo "user.js exists"
+   else
+      echo "user.js does not exist"
+      cd $dir
+      echo "// turn off application updates:" > user.js
+      echo "user_pref(\"app.update.enabled\", false);" >> user.js
+      /bin/chown demcaller user.js
+      /bin/chgrp demcaller user.js
+fi
+
+echo `/bin/date` " finished: installing user.js in firefox config"
