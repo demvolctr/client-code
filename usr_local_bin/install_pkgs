@@ -14,6 +14,7 @@ echo `/bin/date` " : start installing packages"
 let mach_num=`/usr/local/bin/echo_host`
 echo "machine_num=" $mach_num
 
+/usr/local/bin/install_server_key
 /usr/local/bin/install_JSON
 /usr/local/bin/install_flashplugin
 /usr/local/bin/install_user_js
