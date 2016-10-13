@@ -1,2 +1,2 @@
 #!/bin/bash
-cat /etc/hostname | awk -F - '{print $3;}'
+cat /etc/hostname | awk -F - 'BEGIN { mach_num=0; } (NF==3) {mach_num=$3;} END {print mach_num}'
