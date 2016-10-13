@@ -16,13 +16,10 @@ echo "machine_num=" $mach_num
 
 /usr/local/bin/install_JSON
 /usr/local/bin/install_flashplugin
+/usr/local/bin/install_user_js
 
-if [ $mach_num -ge 19 ] && [ $mach_num -le 25 ]; then
+if [ $mach_num -ge 13 ] && [ $mach_num -le 25 ]; then
    /usr/local/bin/install_smartmontools
-fi
-
-if [ $mach_num -ge 25 ] && [ $mach_num -le 26 ]; then
-   /usr/local/bin/install_user_js
 fi
 
 echo `/bin/date` " : finished installing packages"
