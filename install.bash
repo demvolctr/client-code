@@ -33,22 +33,22 @@ if [ $host_there -ne 0 ]; then echo "no github.com"; exit 1; fi
 echo `/bin/date` "Starting pull and install"
 
 cd /home/dem/gitproject/client-code
-sudo --user=dem git pull https://github.com/demvolctr/client-code master
 
-# let pull_result=$?
-# if [ $pull_result -eq 0 ]; then
-#    echo "Nothing changed since last reboot"
- #   exit 0
-# fi
+git_status=`sudo --user=dem git pull https://github.com/demvolctr/client-code master | awk 'BEGIN {status=0;} ("Already up-to-date.") { status=1;} END { print status; }'`
 
-/home/dem/gitproject/client-code/copy_usr_local_bin.pl
-/home/dem/gitproject/client-code/copy_rc_local.pl
+if [ $git_status -eq 1 ]; then
+    echo `/bin/date` "No software has changed since last reboot"
+else
+    echo `/bin/date` "Software has been updated since last reboot."
+    /home/dem/gitproject/client-code/copy_usr_local_bin.pl
+    /home/dem/gitproject/client-code/copy_rc_local.pl
+    /usr/local/bin/install_pkgs
+fi
 
-/usr/local/bin/install_pkgs
+echo `/bin/date` "Starting health checkup"
 
-echo "Starting health checkup"
 /usr/local/bin/health_checkup >& /home/dem/gitproject/health_report
-echo "Finished health checkup"
+echo `/bin/date` "Finished health checkup"
 
 # let machine_num=`/usr/local/bin/echo_host`
 # echo "machine_num=" $machine_num
