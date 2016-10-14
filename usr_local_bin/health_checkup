@@ -1,5 +1,5 @@
 #!/bin/bash
-# exec 1> >(logger -s -t $(basename $0)) 2>&1
+exec 1> >(logger -s -t $(basename $0)) 2>&1
 
 echo `/bin/date` ": Checking health of machine " `/usr/local/bin/echo_host` "at ip addresses:"
 
