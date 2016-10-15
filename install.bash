@@ -34,7 +34,7 @@ echo `/bin/date` "Starting pull and install"
 
 cd /home/dem/gitproject/client-code
 
-git_status=`sudo --user=dem git pull https://github.com/demvolctr/client-code master | awk 'BEGIN {status=0;} ("Already up-to-date.") { status=1;} END { print status; }'`
+git_status=`sudo --user=dem git pull https://github.com/demvolctr/client-code master | awk 'BEGIN {status=0;} (/Already up-to-date./) { status=1;} END { print status; }'`
 
 if [ $git_status -eq 1 ]; then
     echo `/bin/date` "No software has changed since last reboot"
