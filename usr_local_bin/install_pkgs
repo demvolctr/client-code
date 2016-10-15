@@ -12,7 +12,7 @@ echo `/bin/date` " : start installing packages"
 /usr/local/bin/install_ssh
 
 let mach_num=`/usr/local/bin/echo_host`
-echo "machine_num=" $mach_num
+echo "mach_num=" $mach_num
 
 /usr/local/bin/install_server_key
 /usr/local/bin/install_JSON
