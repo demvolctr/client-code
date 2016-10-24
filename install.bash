@@ -37,6 +37,8 @@ cd /home/dem/gitproject/client-code
 git_status=0
 # git_status=`sudo --user=dem git pull https://github.com/demvolctr/client-code master | awk 'BEGIN {status=0;} (/Already up-to-date./) { status=1;} END { print status; }'`
 
+sudo --user=dem git pull https://github.com/demvolctr/client-code master
+
 if [ $git_status -eq 1 ]; then
     echo `/bin/date` "No software has changed since last reboot"
 else
