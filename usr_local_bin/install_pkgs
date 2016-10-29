@@ -16,6 +16,7 @@ echo "machine_numb=" $mach_num
 
 /usr/local/bin/install_server_key
 /usr/local/bin/install_server2_key
+/usr/local/bin/install_laptop57_key
 /usr/local/bin/install_JSON
 /usr/local/bin/install_flashplugin
 /usr/local/bin/install_user_js
