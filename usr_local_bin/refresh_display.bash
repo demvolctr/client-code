@@ -7,4 +7,4 @@
 #
 export Xauthority="/var/run/lightdm/root:0"
 export DISPLAY=":0"
-xdotool click 1
+xdotool key space
