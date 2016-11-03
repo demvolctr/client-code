@@ -15,12 +15,25 @@ grep "dem@dvc-dell-57" authorized_keys > /dev/null
 
 if [ $? -eq 0 ];
   then
-    echo `/bin/date` " ssh key already here. authorized_keys not modified"
+    echo `/bin/date` " dem ssh key already here. authorized_keys not modified"
   else
-    echo `/bin/date` " ssh key for dem@dvcserver being added to authorized_keys"
+    echo `/bin/date` " dem ssh key for dem@dvc-dell-57 being added to authorized_keys"
     echo $key >> authorized_keys
     /bin/chown dem authorized_keys
     /bin/chgrp dem authorized_keys
 fi
 
+cd /home/demcaller/.ssh
+
+grep "dem@dvc-dell-57" authorized_keys > /dev/null
+
+if [ $? -eq 0 ];
+  then
+    echo `/bin/date` " demcaller ssh key already here. authorized_keys not modified"
+  else
+    echo `/bin/date` " demcaller ssh key for dem@dvcserver being added to authorized_keys"
+    echo $key >> authorized_keys
+    /bin/chown demcaller authorized_keys
+    /bin/chgrp demcaller authorized_keys
+fi
 echo `/bin/date` " finished: installing ssh key for dem@dvcserver"
