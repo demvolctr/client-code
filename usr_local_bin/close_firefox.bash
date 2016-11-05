@@ -13,3 +13,4 @@ wmctrl -c "Mozilla Firefox"
 sleep 1
 wmctrl -l | grep "Confirm close" > /dev/null
 xdotool search --name "Confirm close" key Return
+exit 0
