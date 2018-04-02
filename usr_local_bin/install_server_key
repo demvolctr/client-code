@@ -1,11 +1,13 @@
 #!/bin/bash
 #
 #  install_server_key: install ssh key for dem@dvcserver
+#      4/2/18: updated so my laptop is the server
 #
 #      Jon Hull -- 10/13/16
 #
 
-key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmLo7MZ0eFeBPi5TgYlsHeN/gGSi5Lq+dA9qomdkQ0WFGnQnHCVAy36AK7YdGwU0nc0Li71C/T9s42jvSBzQHA6m6ToJoTtyqY4GUvYJ7FUdKcSstSJKCYibvPefqrH/WvQoNIaCaAGTIh+Z6B0EjnZtC90dmYw9u9T2YoDx3o3n0XecDLL/WjPSqV64tjV+4m/zpNCnnT8ocSgVFfhZ+k1hd6+08YZm68tYNlb4kOwTLyyOdHc4Yfy9hHLPp12bHPkXOMuauoHSsClPAmzUbsCIS1HP+ercerqEdwVcKlSXenWfH5Vlo83F/4Lf513+HV4uL9sn2SqxEnEO2WUk63 dem@dvcserver"
+# key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmLo7MZ0eFeBPi5TgYlsHeN/gGSi5Lq+dA9qomdkQ0WFGnQnHCVAy36AK7YdGwU0nc0Li71C/T9s42jvSBzQHA6m6ToJoTtyqY4GUvYJ7FUdKcSstSJKCYibvPefqrH/WvQoNIaCaAGTIh+Z6B0EjnZtC90dmYw9u9T2YoDx3o3n0XecDLL/WjPSqV64tjV+4m/zpNCnnT8ocSgVFfhZ+k1hd6+08YZm68tYNlb4kOwTLyyOdHc4Yfy9hHLPp12bHPkXOMuauoHSsClPAmzUbsCIS1HP+ercerqEdwVcKlSXenWfH5Vlo83F/4Lf513+HV4uL9sn2SqxEnEO2WUk63 dem@dvcserver"
+key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaxBog0EaxxeBW3Nq2XnJ1mvGXBwFpjIdZXrbZTBwAUyxeZ4Bul7nJpaWiOYIgeP3Ki5jN6psY1nruPgqhQ9EakXD40++Io6D6a1eI+EXMYnoAu1XhXR80mOMkV5YvWSz4zbnQN+X0epa4W5HlLyxJra1hUaOJZNgL6ZbP3G3wd/y00qtoe54D3OakQ9+Se7xZz2h9m4sLGreBnthjgcHFZ8BjlJ9Bn2tI+kbsBJn4C+u6MSeGIJHkWZwjA6Crb3GGQXxK8P4GWMDknLNAP3QtKtM9iYeXRv21efcGga1mcnSrEgJUE7uHO3Ffr67lGdSp3JKYl5UTvTQ7GY0R/8hT dem@hull-Lenovo-25"
 
 echo `/bin/date` " start: installing ssh key for dem@dvcserver"
 
