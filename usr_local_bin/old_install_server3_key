@@ -32,27 +32,4 @@ if [ $? -eq 0 ];
     /bin/chgrp demcaller authorized_keys
 fi
 
-cd /home/dem
-
-if [ ! -d .ssh ]; then
-   mkdir .ssh
-   /bin/chown dem .ssh
-   /bin/chgrp dem caller .ssh
-   cat /dev/null > .ssh/authorized_keys
-fi
-
-cd .ssh
-
-grep "dem@hull-Lenovo-25" authorized_keys > /dev/null
-
-if [ $? -eq 0 ];
-  then
-    echo `/bin/date` " ssh key already here. authorized_keys not modified"
-  else
-    echo `/bin/date` " ssh key for dem@hull-Lenovo-25 added to authorized_keys"
-    echo $key >> authorized_keys
-    /bin/chown dem authorized_keys
-    /bin/chgrp dem authorized_keys
-fi
-
 echo `/bin/date` " finished: installing ssh key for dem@hull-Lenovo-25"
