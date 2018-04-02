@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+#  install_server3_key: install ssh key for dem@hull-Lenovo-25
+#
+#      Jon Hull -- 10/13/16
+#
+
+key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaxBog0EaxxeBW3Nq2XnJ1mvGXBwFpjIdZXrbZTBwAUyxeZ4Bul7nJpaWiOYIgeP3Ki5jN6psY1nruPgqhQ9EakXD40++Io6D6a1eI+EXMYnoAu1XhXR80mOMkV5YvWSz4zbnQN+X0epa4W5HlLyxJra1hUaOJZNgL6ZbP3G3wd/y00qtoe54D3OakQ9+Se7xZz2h9m4sLGreBnthjgcHFZ8BjlJ9Bn2tI+kbsBJn4C+u6MSeGIJHkWZwjA6Crb3GGQXxK8P4GWMDknLNAP3QtKtM9iYeXRv21efcGga1mcnSrEgJUE7uHO3Ffr67lGdSp3JKYl5UTvTQ7GY0R/8hT dem@hull-Lenovo-25"
+
+echo `/bin/date` " start: installing ssh key for dem@hull-Lenovo-25"
+
+cd /home/demcaller
+
+if [ ! -d .ssh ]; then
+   mkdir .ssh
+   /bin/chown demcaller .ssh
+   /bin/chgrp demcaller .ssh
+   cat /dev/null > .ssh/authorized_keys
+fi
+
+cd .ssh
+
+grep "dem@hull-Lenovo-25" authorized_keys > /dev/null
+
+if [ $? -eq 0 ];
+  then
+    echo `/bin/date` " ssh key already here. authorized_keys not modified"
+  else
+    echo `/bin/date` " ssh key for dem@hull-Lenovo-25 added to authorized_keys"
+    echo $key >> authorized_keys
+    /bin/chown demcaller authorized_keys
+    /bin/chgrp demcaller authorized_keys
+fi
+
+echo `/bin/date` " finished: installing ssh key for dem@hull-Lenovo-25"
