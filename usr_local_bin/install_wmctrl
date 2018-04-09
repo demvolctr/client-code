@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#  install_wmctrl: install wmctrl 
+#
+#      Jon Hull -- 4/9/18
+#
+
+echo `/bin/date` " start: installing wmctrl"
+
+let install_status=`dpkg -s wmctrl|grep Status|awk 'BEGIN { stat=0;} (/install ok installed/) { stat=1;} END {print stat;}'`
+
+if [ $install_status -eq 1 ]; then
+  echo `/bin/date` " wmctrl already up to date"
+  exit 0
+fi
+
+apt-get -y install wmctrl
+
+echo `/bin/date` " finished: installing wmctrl"

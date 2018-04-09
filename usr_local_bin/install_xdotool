@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#  install_xdotool: install xdotool 
+#
+#      Jon Hull -- 4/9/18
+#
+
+echo `/bin/date` " start: installing xdotool"
+
+let install_status=`dpkg -s xdotool|grep Status|awk 'BEGIN { stat=0;} (/install ok installed/) { stat=1;} END {print stat;}'`
+
+if [ $install_status -eq 1 ]; then
+  echo `/bin/date` " xdotool already up to date"
+  exit 0
+fi
+
+apt-get -y install xdotool
+
+echo `/bin/date` " finished: installing xdotool"
