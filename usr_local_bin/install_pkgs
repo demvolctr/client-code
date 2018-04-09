@@ -21,6 +21,8 @@ echo "machine_numb=" $mach_num
 /usr/local/bin/install_flashplugin
 /usr/local/bin/install_user_js
 /usr/local/bin/install_smartmontools
+/usr/local/bin/install_xdotool
+/usr/local/bin/install_wmctrl
 
 #if [ $mach_num -ge 13 ] && [ $mach_num -le 25 ]; then
 #fi
