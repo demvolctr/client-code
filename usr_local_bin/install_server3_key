@@ -9,35 +9,12 @@ key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaxBog0EaxxeBW3Nq2XnJ1mvGXBwFpjIdZXrb
 
 echo `/bin/date` " start: installing ssh key for dem@hull-Lenovo-25"
 
-cd /home/demcaller
-
-if [ ! -d .ssh ]; then
-   mkdir .ssh
-   /bin/chown demcaller .ssh
-   /bin/chgrp demcaller .ssh
-   cat /dev/null > .ssh/authorized_keys
-fi
-
-cd .ssh
-
-grep "dem@hull-Lenovo-25" authorized_keys > /dev/null
-
-if [ $? -eq 0 ];
-  then
-    echo `/bin/date` " ssh key already here. authorized_keys not modified"
-  else
-    echo `/bin/date` " ssh key for dem@hull-Lenovo-25 added to authorized_keys"
-    echo $key >> authorized_keys
-    /bin/chown demcaller authorized_keys
-    /bin/chgrp demcaller authorized_keys
-fi
-
 cd /home/dem
 
 if [ ! -d .ssh ]; then
    mkdir .ssh
    /bin/chown dem .ssh
-   /bin/chgrp dem caller .ssh
+   /bin/chgrp dem .ssh
    cat /dev/null > .ssh/authorized_keys
 fi
 
