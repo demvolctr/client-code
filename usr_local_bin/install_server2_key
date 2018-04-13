@@ -9,12 +9,12 @@ key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxOQXHQWYi5FOjEdnNUpAozTcilWlcRGhewJj
 
 echo `/bin/date` " start: installing ssh key for dem@hull-Lenovo-3000-G550"
 
-cd /home/demcaller
+cd /home/dem
 
 if [ ! -d .ssh ]; then
    mkdir .ssh
-   /bin/chown demcaller .ssh
-   /bin/chgrp demcaller .ssh
+   /bin/chown dem .ssh
+   /bin/chgrp dem .ssh
    cat /dev/null > .ssh/authorized_keys
 fi
 
@@ -28,8 +28,8 @@ if [ $? -eq 0 ];
   else
     echo `/bin/date` " ssh key for dem@hull-Lenovo-3000-G550 added to authorized_keys"
     echo $key >> authorized_keys
-    /bin/chown demcaller authorized_keys
-    /bin/chgrp demcaller authorized_keys
+    /bin/chown dem authorized_keys
+    /bin/chgrp dem authorized_keys
 fi
 
 echo `/bin/date` " finished: installing ssh key for dem@hull-Lenovo-3000-G550"
