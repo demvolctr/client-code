@@ -35,9 +35,11 @@ echo `/bin/date` "Starting pull and install"
 cd /home/dem/gitproject/client-code
 
 #  10/28/16: update the apt cache to ensure we can find latest versions
-echo "starting apt-get -y update"
-apt-get -y update
-echo "finished apt-get -y update"
+#  4/19/18:  commented out to suppress the update because it was asking
+#            callers to confirm they want to install patches
+# echo "starting apt-get -y update"
+# apt-get -y update
+# echo "finished apt-get -y update"
 
 git_status=0
 # git_status=`sudo --user=dem git pull https://github.com/demvolctr/client-code master | awk 'BEGIN {status=0;} (/Already up-to-date./) { status=1;} END { print status; }'`
